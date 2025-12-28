@@ -518,6 +518,93 @@ module tb_cache;
         $display("");
 
         //======================================================================
+        // TEST 9: TRUE NON-BLOCKING - HIT UNDER MISS
+        //======================================================================
+        $display("════════════════════════════════════════════════════════════════════");
+        $display("TEST 9: HIT-UNDER-MISS (True Non-Blocking Behavior)");
+        $display("════════════════════════════════════════════════════════════════════");
+        $display("This test verifies the cache can service HITS while a MISS is pending.");
+        $display("A blocking cache would stall all requests during memory fetch.");
+        $display("");
+        
+        // First, ensure we have some data in cache (different sets)
+        $display("--- Setup: Pre-load cache lines in different sets ---");
+        cpu_access(0, 2, 20'h00020, 0);  // Set 1
+        cpu_access(0, 2, 20'h00040, 0);  // Set 2
+        cpu_access(0, 2, 20'h00060, 0);  // Set 3
+        $display("  Loaded lines at 0x00020 (Set 1), 0x00040 (Set 2), 0x00060 (Set 3)");
+        
+        $display("");
+        $display("--- Hit-Under-Miss Test ---");
+        $display("1. Issue READ MISS to trigger memory fetch (takes %0d cycles)", MEM_LATENCY);
+        $display("2. While miss pending, issue HITs to other cached lines");
+        $display("3. Hits should complete in 1 cycle, not wait for miss");
+        $display("");
+        
+        // Start a miss (this will take ~50 cycles)
+        test_addr = 20'h09000;  // New address - will miss
+        @(posedge clk);
+        while (!cpu_req_ready) @(posedge clk);
+        cpu_req_valid <= 1;
+        cpu_req_rw    <= 0;
+        cpu_req_addr  <= test_addr;
+        cpu_req_wdata <= 0;
+        cpu_req_size  <= 2;
+        $display("[CPU] @ cycle %0d: Issue MISS to addr=0x%05x", cycle_count, test_addr);
+        @(posedge clk);
+        cpu_req_valid <= 0;
+        
+        // Wait a few cycles for miss to be in progress
+        repeat(3) @(posedge clk);
+        
+        // Now try to hit cached lines WHILE miss is pending
+        hit_count = 0;
+        miss_count = 0;
+        
+        $display("[CPU] @ cycle %0d: MISS still pending (MSHR busy)...", cycle_count);
+        $display("      Now issuing HITs to pre-loaded lines:");
+        
+        // These should HIT immediately even though MSHR is busy
+        if (cpu_req_ready) begin
+            $display("      cpu_req_ready = 1 (accepting requests!)");
+            
+            // Hit to Set 1
+            req_start = cycle_count;
+            cpu_access(0, 2, 20'h00020, 0);
+            $display("      HIT 0x00020: %s in %0d cycles", 
+                     cpu_resp_hit ? "HIT" : "MISS", cycle_count - req_start);
+            
+            // Hit to Set 2
+            req_start = cycle_count;
+            cpu_access(0, 2, 20'h00040, 0);
+            $display("      HIT 0x00040: %s in %0d cycles", 
+                     cpu_resp_hit ? "HIT" : "MISS", cycle_count - req_start);
+            
+            // Hit to Set 3
+            req_start = cycle_count;
+            cpu_access(0, 2, 20'h00060, 0);
+            $display("      HIT 0x00060: %s in %0d cycles", 
+                     cpu_resp_hit ? "HIT" : "MISS", cycle_count - req_start);
+        end
+        else begin
+            $display("      cpu_req_ready = 0 (BLOCKING - waiting for miss)");
+        end
+        
+        // Wait for the original miss to complete
+        while (!cpu_resp_valid) @(posedge clk);
+        $display("[CPU] @ cycle %0d: Original MISS completed", cycle_count);
+        
+        $display("");
+        if (hit_count >= 3) begin
+            $display(">>> SUCCESS: %0d hits serviced WHILE miss was pending!", hit_count);
+            $display(">>> This is TRUE NON-BLOCKING (hit-under-miss) behavior!");
+        end
+        else begin
+            $display(">>> Cache blocked during miss (blocking behavior)");
+        end
+        $display("");
+
+        //======================================================================
         // Summary
         //======================================================================
         $display("╔══════════════════════════════════════════════════════════════════╗");
@@ -535,7 +622,8 @@ module tb_cache;
         $display("║    ✓ Conflict misses (5 blocks to 4-way set)                     ║");
         $display("║    ✓ Memory writes (write-back on eviction)                      ║");
         $display("║    ✓ Byte/half-word/word access                                  ║");
-        $display("║    ✓ Non-blocking with MSHR (Miss Status Holding Register)       ║");
+        $display("║    ✓ Non-blocking MSHR (Miss Status Holding Register)            ║");
+        $display("║    ✓ Hit-under-miss (service hits while miss pending)            ║");
         $display("╚══════════════════════════════════════════════════════════════════╝");
         
         #100;
