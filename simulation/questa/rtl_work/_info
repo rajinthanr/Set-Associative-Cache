@@ -10,74 +10,98 @@ z2
 cModel Technology
 Z0 d/home/rajinthan/Workspace/Git/Set-Associative-Cache/simulation/questa
 vcache
-Z1 !s110 1766841950
+Z1 !s110 1766929861
 !i10b 1
-!s100 ]kJ3h7I4BIfOO0Z`<Lg0W2
+!s100 :dPQ<@JI<OiFPj0Ud7D]k0
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
-I2K>g7djY1cZzz6=20VRZI2
+Im;eORK;DO<RV1Z^R`>4mZ1
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1766841571
+w1766924677
 8/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v
 F/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v
 !i122 0
-L0 3 195
+L0 6 341
 Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1766841950.000000
+!s108 1766929860.000000
 !s107 /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v|
 !s90 -reportprogress|300|-work|work|+incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog|/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v|
 !i113 1
-Z6 o-work work
-Z7 !s92 -work work +incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog
-Z8 tCvgOpt 0
+Z5 o-work work
+Z6 !s92 -work work +incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog
+Z7 tCvgOpt 0
+vissp_debug
+R1
+!i10b 1
+!s100 0AMU5kdfNa^[cf?3`[c7@1
+R2
+IVVYPi=>22TaNmF6RVI_gj3
+R3
+R0
+w1766924946
+8/home/rajinthan/Workspace/Git/Set-Associative-Cache/ip/issp_debug.v
+F/home/rajinthan/Workspace/Git/Set-Associative-Cache/ip/issp_debug.v
+!i122 2
+L0 13 37
+R4
+r1
+!s85 0
+31
+Z8 !s108 1766929861.000000
+!s107 /home/rajinthan/Workspace/Git/Set-Associative-Cache/ip/issp_debug.v|
+!s90 -reportprogress|300|-work|work|+incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/ip|/home/rajinthan/Workspace/Git/Set-Associative-Cache/ip/issp_debug.v|
+!i113 1
+R5
+!s92 -work work +incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/ip
+R7
 vtb_cache
 R1
 !i10b 1
-!s100 i4YaaUV?joTH=1hfBCgFN1
+!s100 FbaMW<X62;CMM:bm]V7Vk2
 R2
-I6KmLTm3fRPb6VM_^NH`fo2
+IkgK2Xo52=_4S<^ikl6]kT0
 R3
 R0
-w1766840628
+w1766915141
 8/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/tb_cache.v
 F/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/tb_cache.v
-!i122 2
-L0 2 153
+!i122 3
+L0 7 743
 R4
 r1
 !s85 0
 31
-R5
+R8
 !s107 /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/tb_cache.v|
 !s90 -reportprogress|300|-work|work|+incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog|/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/tb_cache.v|
 !i113 1
+R5
 R6
 R7
-R8
 vtop_synth
 R1
 !i10b 1
-!s100 g3XW]n_XN<;FH16_VUacY2
+!s100 oc_QiBE4P0jCkZOYTg3Xb1
 R2
-I>06Qa5VCA]DiPL^FTZ1GW2
+IJ_jSjnSXD7JojDL?[Zg`n1
 R3
 R0
-w1766841594
+w1766928108
 8/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v
 F/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v
 !i122 1
-L0 2 126
+L0 6 315
 R4
 r1
 !s85 0
 31
-R5
+R8
 !s107 /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v|
 !s90 -reportprogress|300|-work|work|+incdir+/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog|/home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v|
 !i113 1
+R5
 R6
 R7
-R8

@@ -34,7 +34,7 @@ module cache (
     localparam TAG_BITS   = 12;      // 20 - SET_BITS - 5
     localparam ASSOC      = 4;       // Ways per set
     localparam NUM_LINES  = 32;      // NUM_SETS * ASSOC
-    localparam LINE_BITS  = 256;     // 32 bytes * 8 bits
+    localparam LINE_BITS  = 128;     // 16 bytes * 8 bits
 
     // MSHR configuration - CHANGE THIS TO ADJUST MISS PARALLELISM
     localparam NUM_MSHR   = 4;       // Number of MSHR entries (1, 2, 4, 8)

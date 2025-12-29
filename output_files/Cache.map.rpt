@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Cache
-Sat Dec 27 18:55:31 2025
+Sun Dec 28 19:57:31 2025
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -13,14 +13,21 @@ Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "cache:cache_inst"
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
+  8. Analysis & Synthesis IP Cores Summary
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst
+ 14. Parameter Settings for User Entity Instance: issp:issp_inst|altsource_probe_top:in_system_sources_probes_0
+ 15. Parameter Settings for User Entity Instance: issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl
+ 16. Port Connectivity Checks: "cache:cache_inst"
+ 17. Port Connectivity Checks: "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl"
+ 18. Port Connectivity Checks: "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+ 22. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -47,15 +54,15 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Dec 27 18:55:31 2025           ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec 28 19:57:31 2025           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; Cache                                           ;
 ; Top-level Entity Name              ; top_synth                                       ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 999                                             ;
-;     Total combinational functions  ; 590                                             ;
-;     Dedicated logic registers      ; 534                                             ;
-; Total registers                    ; 534                                             ;
+; Total logic elements               ; 17,551                                          ;
+;     Total combinational functions  ; 17,073                                          ;
+;     Dedicated logic registers      ; 5,511                                           ;
+; Total registers                    ; 5511                                            ;
 ; Total pins                         ; 14                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -164,25 +171,40 @@ on the Quartus Prime software download page.
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
-;     Processor 7            ;   0.0%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
 ;     Processor 8            ;   0.0%      ;
-;     Processor 9            ;   0.0%      ;
-;     Processor 10           ;   0.0%      ;
+;     Processors 9-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                          ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
-; verilog/cache.v                  ; yes             ; User Verilog HDL File  ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v     ;         ;
-; verilog/top_synth.v              ; yes             ; User Verilog HDL File  ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v ;         ;
-+----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                                                  ;
++-------------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                                                ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                           ; Library     ;
++-------------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------+
+; verilog/cache.v                                                                                 ; yes             ; User Verilog HDL File                        ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v                                                    ;             ;
+; verilog/top_synth.v                                                                             ; yes             ; User Verilog HDL File                        ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v                                                ;             ;
+; ip/issp_debug.v                                                                                 ; yes             ; User Verilog HDL File                        ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/ip/issp_debug.v                                                    ;             ;
+; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/issp.v                           ; yes             ; Auto-Found Verilog HDL File                  ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/issp.v                                                  ; issp        ;
+; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/submodules/altsource_probe_top.v ; yes             ; Auto-Found Verilog HDL File                  ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/submodules/altsource_probe_top.v                        ; issp        ;
+; altsource_probe.v                                                                               ; yes             ; Megafunction                                 ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/altsource_probe.v                                  ;             ;
+; sld_jtag_endpoint_adapter.vhd                                                                   ; yes             ; Encrypted Megafunction                       ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                      ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                                               ; yes             ; Encrypted Megafunction                       ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                  ;             ;
+; altsource_probe_body.vhd                                                                        ; yes             ; Megafunction                                 ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/altsource_probe_body.vhd                           ;             ;
+; sld_rom_sr.vhd                                                                                  ; yes             ; Encrypted Megafunction                       ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/sld_rom_sr.vhd                                     ;             ;
+; sld_hub.vhd                                                                                     ; yes             ; Encrypted Megafunction                       ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/sld_hub.vhd                                        ; altera_sld  ;
+; db/ip/sldf7b0dac6/alt_sld_fab.v                                                                 ; yes             ; Encrypted Auto-Found Verilog HDL File        ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab.v                                          ; yes             ; Encrypted Auto-Found Verilog HDL File        ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_ident.sv                                   ; yes             ; Auto-Found SystemVerilog HDL File            ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_presplit.sv                                ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd                              ; yes             ; Encrypted Auto-Found VHDL File               ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_splitter.sv                                ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                                                ; yes             ; Encrypted Megafunction                       ; /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                   ;             ;
++-------------------------------------------------------------------------------------------------+-----------------+----------------------------------------------+------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
 +------------------------------------------------------------+
@@ -190,20 +212,20 @@ on the Quartus Prime software download page.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 999          ;
+; Estimated Total logic elements              ; 17,551       ;
 ;                                             ;              ;
-; Total combinational functions               ; 590          ;
+; Total combinational functions               ; 17073        ;
 ; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 486          ;
-;     -- 3 input functions                    ; 52           ;
-;     -- <=2 input functions                  ; 52           ;
+;     -- 4 input functions                    ; 15739        ;
+;     -- 3 input functions                    ; 849          ;
+;     -- <=2 input functions                  ; 485          ;
 ;                                             ;              ;
 ; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 559          ;
-;     -- arithmetic mode                      ; 31           ;
+;     -- normal mode                          ; 16876        ;
+;     -- arithmetic mode                      ; 197          ;
 ;                                             ;              ;
-; Total registers                             ; 534          ;
-;     -- Dedicated logic registers            ; 534          ;
+; Total registers                             ; 5511         ;
+;     -- Dedicated logic registers            ; 5511         ;
 ;     -- I/O registers                        ; 0            ;
 ;                                             ;              ;
 ; I/O pins                                    ; 14           ;
@@ -211,34 +233,71 @@ on the Quartus Prime software download page.
 ; Embedded Multiplier 9-bit elements          ; 0            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_50~input ;
-; Maximum fan-out                             ; 534          ;
-; Total fan-out                               ; 3861         ;
-; Average fan-out                             ; 3.35         ;
+; Maximum fan-out                             ; 5329         ;
+; Total fan-out                               ; 91705        ;
+; Average fan-out                             ; 4.05         ;
 +---------------------------------------------+--------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name         ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
-; |top_synth                 ; 590 (60)            ; 534 (46)                  ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |top_synth                  ; top_synth   ; work         ;
-;    |cache:cache_inst|      ; 530 (530)           ; 488 (488)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|cache:cache_inst ; cache       ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------+-------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                   ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |top_synth                                                                                                                              ; 17073 (347)         ; 5511 (357)                ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |top_synth                                                                                                                                                                                                                                                                                                                                            ; top_synth                         ; work         ;
+;    |cache:cache_inst|                                                                                                                   ; 16359 (16359)       ; 4908 (4908)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|cache:cache_inst                                                                                                                                                                                                                                                                                                                           ; cache                             ; work         ;
+;    |issp:issp_inst|                                                                                                                     ; 251 (0)             ; 168 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|issp:issp_inst                                                                                                                                                                                                                                                                                                                             ; issp                              ; issp         ;
+;       |altsource_probe_top:in_system_sources_probes_0|                                                                                  ; 251 (0)             ; 168 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0                                                                                                                                                                                                                                                                              ; altsource_probe_top               ; issp         ;
+;          |altsource_probe:issp_impl|                                                                                                    ; 251 (0)             ; 168 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl                                                                                                                                                                                                                                                    ; altsource_probe                   ; work         ;
+;             |altsource_probe_body:altsource_probe_body_inst|                                                                            ; 251 (3)             ; 168 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst                                                                                                                                                                                                     ; altsource_probe_body              ; work         ;
+;                |altsource_probe_impl:\wider_probe_gen:wider_probe_inst|                                                                 ; 248 (234)           ; 168 (161)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst                                                                                                                                              ; altsource_probe_impl              ; work         ;
+;                   |sld_rom_sr:\no_instance_id_gen:rom_info_inst|                                                                        ; 14 (14)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|sld_rom_sr:\no_instance_id_gen:rom_info_inst                                                                                                 ; sld_rom_sr                        ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 116 (1)             ; 78 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 115 (0)             ; 78 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 115 (0)             ; 78 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 115 (1)             ; 78 (5)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 114 (0)             ; 73 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 114 (77)            ; 73 (45)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 19 (19)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; cache:cache_inst|mshr_victim[5]        ; Stuck at GND due to stuck port data_in ;
-; hit_cnt[4..7]                          ; Lost fanout                            ;
-; miss_cnt[4..7]                         ; Lost fanout                            ;
-; cnt[13..19]                            ; Lost fanout                            ;
-; Total Number of Removed Registers = 16 ;                                        ;
-+----------------------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                                                                                             ;
++--------+---------------------------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+; Vendor ; IP Core Name                    ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                                ; IP Include File                                               ;
++--------+---------------------------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+; Altera ; Signal Tap                      ; N/A     ; N/A          ; Licensed     ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                                                               ;
+; Altera ; Signal Tap                      ; N/A     ; N/A          ; Licensed     ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                                                               ;
+; Altera ; Signal Tap                      ; N/A     ; N/A          ; Licensed     ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                                                               ;
+; Altera ; Signal Tap                      ; N/A     ; N/A          ; Licensed     ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                                                               ;
+; Altera ; Signal Tap                      ; N/A     ; N/A          ; Licensed     ; |top_synth|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                                                               ;
+; N/A    ; altera_in_system_sources_probes ; 25.1    ; N/A          ; N/A          ; |top_synth|issp:issp_inst                                                                                                                                                                                                                                                      ; /home/rajinthan/Workspace/Git/Set-Associative-Cache/issp.qsys ;
++--------+---------------------------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                       ;
++---------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                   ; Reason for Removal                     ;
++---------------------------------------------------------------------------------+----------------------------------------+
+; mem_resp_rdata[0..16,32..48,64..80,96..112,128..144,160..176,192..208,224..240] ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_victim[0][5]                                              ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_victim[1][5]                                              ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_victim[2][5]                                              ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_victim[3][5]                                              ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[0][1]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[0][0]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[1][1]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[1][0]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[2][1]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[2][0]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[3][1]                                             ; Stuck at GND due to stuck port data_in ;
+; cache:cache_inst|mshr_wb_addr[3][0]                                             ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 148                                         ;                                        ;
++---------------------------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -246,58 +305,353 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 534   ;
-; Number of registers using Synchronous Clear  ; 12    ;
-; Number of registers using Synchronous Load   ; 6     ;
-; Number of registers using Asynchronous Clear ; 132   ;
+; Total registers                              ; 5511  ;
+; Number of registers using Synchronous Clear  ; 61    ;
+; Number of registers using Synchronous Load   ; 4207  ;
+; Number of registers using Asynchronous Clear ; 591   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 430   ;
+; Number of registers using Clock Enable       ; 5242  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; cache:cache_inst|cpu_req_ready         ; 5       ;
-; cache:cache_inst|lfsr[0]               ; 23      ;
-; cache:cache_inst|lfsr[15]              ; 1       ;
-; cache:cache_inst|lfsr[13]              ; 2       ;
-; cache:cache_inst|lfsr[10]              ; 2       ;
-; cache:cache_inst|lfsr[11]              ; 1       ;
-; cache:cache_inst|lfsr[7]               ; 1       ;
-; cache:cache_inst|lfsr[6]               ; 1       ;
-; cache:cache_inst|lfsr[5]               ; 1       ;
-; Total number of inverted registers = 9 ;         ;
-+----------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; cache:cache_inst|cpu_req_ready                                                                                                                                                                                                                                                                                                  ; 11      ;
+; cache:cache_inst|lfsr[0]                                                                                                                                                                                                                                                                                                        ; 39      ;
+; cache:cache_inst|lfsr[15]                                                                                                                                                                                                                                                                                                       ; 1       ;
+; cache:cache_inst|lfsr[13]                                                                                                                                                                                                                                                                                                       ; 2       ;
+; cache:cache_inst|lfsr[10]                                                                                                                                                                                                                                                                                                       ; 2       ;
+; cache:cache_inst|lfsr[11]                                                                                                                                                                                                                                                                                                       ; 1       ;
+; cache:cache_inst|lfsr[7]                                                                                                                                                                                                                                                                                                        ; 1       ;
+; cpu_req_size[1]                                                                                                                                                                                                                                                                                                                 ; 12      ;
+; cache:cache_inst|lfsr[6]                                                                                                                                                                                                                                                                                                        ; 1       ;
+; cache:cache_inst|lfsr[5]                                                                                                                                                                                                                                                                                                        ; 1       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 2       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; Total number of inverted registers = 12                                                                                                                                                                                                                                                                                         ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |top_synth|cpu_req_addr[7]                 ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_synth|mem_delay[5]                    ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |top_synth|cache:cache_inst|cpu_resp_valid ;
-; 8:1                ; 48 bits   ; 240 LEs       ; 240 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Mux33          ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Mux32          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cpu_req_wdata[23]                                                                                                                                                                                                                                          ;
+; 3:1                ; 41 bits   ; 82 LEs        ; 41 LEs               ; 41 LEs                 ; Yes        ; |top_synth|cpu_req_addr[13]                                                                                                                                                                                                                                           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_synth|total_req[7]                                                                                                                                                                                                                                               ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_synth|hit_cnt[7]                                                                                                                                                                                                                                                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |top_synth|miss_cnt[14]                                                                                                                                                                                                                                               ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_synth|auto_addr[4]                                                                                                                                                                                                                                               ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |top_synth|auto_addr[5]                                                                                                                                                                                                                                               ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |top_synth|auto_addr[15]                                                                                                                                                                                                                                              ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_synth|mem_delay[0]                                                                                                                                                                                                                                               ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_synth|hit_stretch[6]                                                                                                                                                                                                                                             ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_synth|miss_stretch[19]                                                                                                                                                                                                                                           ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |top_synth|busy_stretch[9]                                                                                                                                                                                                                                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|sld_rom_sr:\no_instance_id_gen:rom_info_inst|word_counter[2] ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[0][5]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[4][6]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[8][5]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[12][7]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[16][5]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[20][6]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[24][1]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[28][10]                                                                                                                                                                                                                         ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[1][9]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[5][10]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[9][7]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[13][10]                                                                                                                                                                                                                         ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[17][0]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[21][1]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[25][0]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[29][0]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[2][0]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[6][6]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[10][2]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[14][2]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[18][5]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[22][0]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[26][4]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[30][8]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[3][10]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[7][4]                                                                                                                                                                                                                           ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[11][9]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[15][4]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[19][9]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[23][9]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[27][6]                                                                                                                                                                                                                          ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |top_synth|cache:cache_inst|tag_array[31][2]                                                                                                                                                                                                                          ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[63]                                                ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|sld_rom_sr:\no_instance_id_gen:rom_info_inst|WORD_SR[1]      ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[0][23]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[4][105]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[8][13]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[12][53]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[16][121]                                                                                                                                                                                                                       ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[20][108]                                                                                                                                                                                                                       ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[24][124]                                                                                                                                                                                                                       ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[28][82]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[1][20]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[5][30]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[9][13]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[13][10]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[17][1]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[21][38]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[25][78]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[29][56]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[2][49]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[6][105]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[10][21]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[14][112]                                                                                                                                                                                                                       ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[18][81]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[22][26]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[26][41]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[30][19]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[3][45]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[7][92]                                                                                                                                                                                                                         ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[11][14]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[15][72]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[19][112]                                                                                                                                                                                                                       ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[23][40]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[27][67]                                                                                                                                                                                                                        ;
+; 7:1                ; 128 bits  ; 512 LEs       ; 384 LEs              ; 128 LEs                ; Yes        ; |top_synth|cache:cache_inst|data_array[31][12]                                                                                                                                                                                                                        ;
+; 36:1               ; 3 bits    ; 72 LEs        ; 9 LEs                ; 63 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[31]                                                ;
+; 14:1               ; 23 bits   ; 207 LEs       ; 69 LEs               ; 138 LEs                ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[11]                                                ;
+; 15:1               ; 4 bits    ; 40 LEs        ; 8 LEs                ; 32 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[51]                                                ;
+; 19:1               ; 6 bits    ; 72 LEs        ; 12 LEs               ; 60 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[54]                                                ;
+; 21:1               ; 6 bits    ; 84 LEs        ; 18 LEs               ; 66 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[22]                                                ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 9 LEs                ; 21 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[60]                                                ;
+; 17:1               ; 9 bits    ; 99 LEs        ; 36 LEs               ; 63 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[40]                                                ;
+; 17:1               ; 6 bits    ; 66 LEs        ; 24 LEs               ; 42 LEs                 ; Yes        ; |top_synth|issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|shift_reg[36]                                                ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |top_synth|cache:cache_inst|mem_req_addr[1]                                                                                                                                                                                                                           ;
+; 10:1               ; 13 bits   ; 78 LEs        ; 65 LEs               ; 13 LEs                 ; Yes        ; |top_synth|cache:cache_inst|mem_req_addr[2]                                                                                                                                                                                                                           ;
+; 139:1              ; 17 bits   ; 1564 LEs      ; 1513 LEs             ; 51 LEs                 ; Yes        ; |top_synth|cache:cache_inst|cpu_resp_rdata[15]                                                                                                                                                                                                                        ;
+; 167:1              ; 15 bits   ; 1665 LEs      ; 1410 LEs             ; 255 LEs                ; Yes        ; |top_synth|cache:cache_inst|cpu_resp_rdata[31]                                                                                                                                                                                                                        ;
+; 4:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Mux1371                                                                                                                                                                                                                                   ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Mux130                                                                                                                                                                                                                                    ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 14 LEs               ; 14 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; No         ; |top_synth|cache:cache_inst|data_array                                                                                                                                                                                                                                ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 176 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2136                                                                                                                                                                                                                              ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 176 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2105                                                                                                                                                                                                                              ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 176 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2078                                                                                                                                                                                                                              ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 176 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2175                                                                                                                                                                                                                              ;
+; 8:1                ; 44 bits   ; 220 LEs       ; 220 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Mux133                                                                                                                                                                                                                                    ;
+; 33:1               ; 15 bits   ; 330 LEs       ; 330 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2498                                                                                                                                                                                                                              ;
+; 33:1               ; 7 bits    ; 154 LEs       ; 154 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2515                                                                                                                                                                                                                              ;
+; 33:1               ; 15 bits   ; 330 LEs       ; 330 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2470                                                                                                                                                                                                                              ;
+; 33:1               ; 7 bits    ; 154 LEs       ; 154 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2486                                                                                                                                                                                                                              ;
+; 33:1               ; 15 bits   ; 330 LEs       ; 330 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2439                                                                                                                                                                                                                              ;
+; 33:1               ; 7 bits    ; 154 LEs       ; 154 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2451                                                                                                                                                                                                                              ;
+; 33:1               ; 16 bits   ; 352 LEs       ; 352 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2541                                                                                                                                                                                                                              ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 176 LEs              ; 0 LEs                  ; No         ; |top_synth|cache:cache_inst|Selector2548                                                                                                                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cache:cache_inst"                                                                              ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; Port            ; Type   ; Severity ; Details                                                                             ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
-; cpu_req_size[1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; cpu_req_size[0] ; Input  ; Info     ; Stuck at GND                                                                        ;
-; cpu_resp_rdata  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mem_req_rw      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; mem_req_wdata   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------------+--------+----------+-------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst ;
++---------------------------------+------------------------+------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value                  ; From ; To                                                                                                                                                 ;
++---------------------------------+------------------------+------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+; NOT_GATE_PUSH_BACK              ; OFF                    ; -    ; -                                                                                                                                                  ;
+; POWER_UP_LEVEL                  ; LOW                    ; -    ; -                                                                                                                                                  ;
+; AUTO_SHIFT_REGISTER_RECOGNITION ; OFF                    ; -    ; -                                                                                                                                                  ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[0]                                                                                                                               ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[31]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[30]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[29]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[28]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[27]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[26]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[25]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[24]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[23]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[22]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[21]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[20]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[19]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[18]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[17]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[16]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[15]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[14]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[13]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[12]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[11]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[10]                                                                                                                                       ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[9]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[8]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[7]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[6]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[5]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[4]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[3]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[2]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[1]                                                                                                                                        ;
+; AUTO_CLOCK_ENABLE_RECOGNITION   ; OFF                    ; -    ; hold_reg[0]                                                                                                                                        ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[1]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[2]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[3]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[4]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[5]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[6]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[7]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[8]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[9]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[10]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[11]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[12]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[13]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[14]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[15]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[16]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[17]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[18]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[19]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[20]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[21]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[22]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[23]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[24]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[25]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[26]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[27]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[28]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[29]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[30]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l2_reg[31]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[0]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[1]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[2]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[3]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[4]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[5]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[6]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[7]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[8]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[9]                                                                                                                               ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[10]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[11]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[12]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[13]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[14]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[15]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[16]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[17]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[18]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[19]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[20]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[21]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[22]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[23]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[24]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[25]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[26]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[27]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[28]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[29]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[30]                                                                                                                              ;
+; SYNCHRONIZER_IDENTIFICATION     ; FORCED_IF_ASYNCHRONOUS ; -    ; metastable_l1_reg[31]                                                                                                                              ;
++---------------------------------+------------------------+------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: issp:issp_inst|altsource_probe_top:in_system_sources_probes_0 ;
++-------------------------+-----------------+----------------------------------------------------------------+
+; Parameter Name          ; Value           ; Type                                                           ;
++-------------------------+-----------------+----------------------------------------------------------------+
+; lpm_type                ; altsource_probe ; String                                                         ;
+; lpm_hint                ; UNUSED          ; String                                                         ;
+; sld_auto_instance_index ; YES             ; String                                                         ;
+; sld_instance_index      ; 0               ; Signed Integer                                                 ;
+; sld_node_info_parameter ; 4746752         ; Signed Integer                                                 ;
+; sld_ir_width            ; 4               ; Signed Integer                                                 ;
+; instance_id             ; NONE            ; String                                                         ;
+; probe_width             ; 64              ; Signed Integer                                                 ;
+; source_width            ; 32              ; Signed Integer                                                 ;
+; source_initial_value    ; 0               ; String                                                         ;
+; enable_metastability    ; YES             ; String                                                         ;
++-------------------------+-----------------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl ;
++-------------------------+-----------------+------------------------------------------------------------------------------------------+
+; Parameter Name          ; Value           ; Type                                                                                     ;
++-------------------------+-----------------+------------------------------------------------------------------------------------------+
+; lpm_type                ; altsource_probe ; String                                                                                   ;
+; lpm_hint                ; UNUSED          ; String                                                                                   ;
+; sld_auto_instance_index ; YES             ; String                                                                                   ;
+; sld_instance_index      ; 0               ; Signed Integer                                                                           ;
+; SLD_NODE_INFO           ; 4746752         ; Signed Integer                                                                           ;
+; sld_ir_width            ; 4               ; Signed Integer                                                                           ;
+; instance_id             ; NONE            ; String                                                                                   ;
+; probe_width             ; 64              ; Signed Integer                                                                           ;
+; source_width            ; 32              ; Signed Integer                                                                           ;
+; source_initial_value    ; 0               ; String                                                                                   ;
+; enable_metastability    ; YES             ; String                                                                                   ;
++-------------------------+-----------------+------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cache:cache_inst"                                                                            ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; mem_req_wdata ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl"                                                                ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                                                                                      ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; raw_tck         ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; tdi             ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; usr1            ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_cdr  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_sdr  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_e1dr ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_udr  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_cir  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_uir  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; jtag_state_tlr  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; clr             ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; ena             ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; ir_in           ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; ir_out          ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
+; tdo             ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-----------------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0" ;
++------------+-------+----------+-----------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                   ;
++------------+-------+----------+-----------------------------------------------------------+
+; source_ena ; Input ; Info     ; Stuck at VCC                                              ;
++------------+-------+----------+-----------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -305,26 +659,29 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
-; cycloneiii_ff         ; 534                         ;
-;     CLR               ; 104                         ;
-;     ENA               ; 402                         ;
-;     ENA CLR           ; 10                          ;
-;     ENA CLR SCLR      ; 12                          ;
-;     ENA CLR SLD       ; 6                           ;
-; cycloneiii_lcell_comb ; 591                         ;
-;     arith             ; 31                          ;
-;         2 data inputs ; 28                          ;
-;         3 data inputs ; 3                           ;
-;     normal            ; 560                         ;
+; boundary_port         ; 35                          ;
+; cycloneiii_ff         ; 5433                        ;
+;     CLR               ; 145                         ;
+;     CLR SLD           ; 1                           ;
+;     ENA               ; 675                         ;
+;     ENA CLR           ; 272                         ;
+;     ENA CLR SCLR      ; 49                          ;
+;     ENA CLR SLD       ; 99                          ;
+;     ENA SLD           ; 4096                        ;
+;     plain             ; 96                          ;
+; cycloneiii_lcell_comb ; 16960                       ;
+;     arith             ; 189                         ;
+;         2 data inputs ; 187                         ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 16771                       ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 16                          ;
-;         2 data inputs ; 8                           ;
-;         3 data inputs ; 49                          ;
-;         4 data inputs ; 486                         ;
+;         1 data inputs ; 42                          ;
+;         2 data inputs ; 220                         ;
+;         3 data inputs ; 819                         ;
+;         4 data inputs ; 15689                       ;
 ;                       ;                             ;
-; Max LUT depth         ; 10.00                       ;
-; Average LUT depth     ; 7.15                        ;
+; Max LUT depth         ; 15.00                       ;
+; Average LUT depth     ; 7.30                        ;
 +-----------------------+-----------------------------+
 
 
@@ -333,7 +690,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:59     ;
 +----------------+--------------+
 
 
@@ -343,44 +700,122 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Sat Dec 27 18:55:26 2025
+    Info: Processing started: Sun Dec 28 19:56:10 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Cache -c Cache
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12248): Elaborating Platform Designer system entity "issp.qsys"
+Info (12250): 2025.12.28.19:56:16 Progress: Loading Set-Associative-Cache/issp.qsys
+Info (12250): 2025.12.28.19:56:16 Progress: Reading input file
+Info (12250): 2025.12.28.19:56:16 Progress: Adding in_system_sources_probes_0 [altera_in_system_sources_probes 25.1]
+Info (12250): 2025.12.28.19:56:16 Progress: Parameterizing module in_system_sources_probes_0
+Info (12250): 2025.12.28.19:56:16 Progress: Building connections
+Info (12250): 2025.12.28.19:56:16 Progress: Parameterizing connections
+Info (12250): 2025.12.28.19:56:16 Progress: Validating
+Info (12250): 2025.12.28.19:56:17 Progress: Done reading input file
+Info (12250): Issp: Generating "issp" for QUARTUS_SYNTH
+Info (12250): In_system_sources_probes_0: "issp" instantiated altera_in_system_sources_probes "in_system_sources_probes_0"
+Info (12250): Issp: Done "issp" with 2 modules, 2 files
+Info (12249): Finished elaborating Platform Designer system entity "issp.qsys"
 Info (12021): Found 1 design units, including 1 entities, in source file verilog/tb_cache.v
-    Info (12023): Found entity 1: tb_cache File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/tb_cache.v Line: 2
+    Info (12023): Found entity 1: tb_cache File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/tb_cache.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file verilog/cache.v
-    Info (12023): Found entity 1: cache File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 3
+    Info (12023): Found entity 1: cache File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file verilog/top_synth.v
-    Info (12023): Found entity 1: top_synth File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 2
+    Info (12023): Found entity 1: top_synth File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file ip/issp_debug.v
+    Info (12023): Found entity 1: issp_debug File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/ip/issp_debug.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/issp/issp.v
+    Info (12023): Found entity 1: issp File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/issp.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/issp/submodules/altsource_probe_top.v
+    Info (12023): Found entity 1: altsource_probe_top File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/submodules/altsource_probe_top.v Line: 14
 Info (12127): Elaborating entity "top_synth" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at top_synth.v(47): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 47
-Warning (10230): Verilog HDL assignment warning at top_synth.v(58): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 58
-Warning (10230): Verilog HDL assignment warning at top_synth.v(65): truncated value with size 32 to match size of target (8) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 65
-Warning (10230): Verilog HDL assignment warning at top_synth.v(67): truncated value with size 32 to match size of target (8) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 67
-Warning (10240): Verilog HDL Always Construct warning at top_synth.v(35): inferring latch(es) for variable "cpu_req_size", which holds its previous value in one or more paths through the always construct File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 35
-Warning (10230): Verilog HDL assignment warning at top_synth.v(94): truncated value with size 32 to match size of target (6) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 94
-Info (10041): Inferred latch for "cpu_req_size[0]" at top_synth.v(35) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 35
-Info (10041): Inferred latch for "cpu_req_size[1]" at top_synth.v(35) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 35
-Info (12128): Elaborating entity "cache" for hierarchy "cache:cache_inst" File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 119
-Warning (10036): Verilog HDL or VHDL warning at cache.v(44): object "mshr_set" assigned a value but never read File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 44
-Warning (10230): Verilog HDL assignment warning at cache.v(175): truncated value with size 32 to match size of target (6) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 175
-Warning (10230): Verilog HDL assignment warning at cache.v(179): truncated value with size 17 to match size of target (15) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 179
-Warning (10240): Verilog HDL Always Construct warning at cache.v(76): inferring latch(es) for variable "i", which holds its previous value in one or more paths through the always construct File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 76
-Info (13000): Registers with preset signals will power-up high File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 11
+Warning (10230): Verilog HDL assignment warning at top_synth.v(94): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 94
+Warning (10230): Verilog HDL assignment warning at top_synth.v(132): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 132
+Warning (10230): Verilog HDL assignment warning at top_synth.v(133): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 133
+Warning (10230): Verilog HDL assignment warning at top_synth.v(134): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 134
+Warning (10230): Verilog HDL assignment warning at top_synth.v(146): truncated value with size 32 to match size of target (16) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 146
+Warning (10230): Verilog HDL assignment warning at top_synth.v(148): truncated value with size 32 to match size of target (16) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 148
+Warning (10230): Verilog HDL assignment warning at top_synth.v(150): truncated value with size 32 to match size of target (16) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 150
+Warning (10230): Verilog HDL assignment warning at top_synth.v(170): truncated value with size 32 to match size of target (6) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 170
+Warning (10230): Verilog HDL assignment warning at top_synth.v(180): truncated value with size 32 to match size of target (6) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 180
+Warning (10230): Verilog HDL assignment warning at top_synth.v(288): truncated value with size 32 to match size of target (24) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 288
+Warning (10230): Verilog HDL assignment warning at top_synth.v(294): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 294
+Warning (10230): Verilog HDL assignment warning at top_synth.v(300): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 300
+Warning (10230): Verilog HDL assignment warning at top_synth.v(306): truncated value with size 32 to match size of target (20) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 306
+Info (12128): Elaborating entity "issp" for hierarchy "issp:issp_inst" File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 73
+Info (12128): Elaborating entity "altsource_probe_top" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0" File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/issp.v Line: 25
+Info (12128): Elaborating entity "altsource_probe" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl" File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/submodules/altsource_probe_top.v Line: 55
+Info (12130): Elaborated megafunction instantiation "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl" File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/submodules/altsource_probe_top.v Line: 55
+Info (12133): Instantiated megafunction "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl" with the following parameter: File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/issp/submodules/altsource_probe_top.v Line: 55
+    Info (12134): Parameter "lpm_type" = "altsource_probe"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "sld_auto_instance_index" = "YES"
+    Info (12134): Parameter "sld_instance_index" = "0"
+    Info (12134): Parameter "SLD_NODE_INFO" = "4746752"
+    Info (12134): Parameter "sld_ir_width" = "4"
+    Info (12134): Parameter "instance_id" = "NONE"
+    Info (12134): Parameter "probe_width" = "64"
+    Info (12134): Parameter "source_width" = "32"
+    Info (12134): Parameter "source_initial_value" = "0"
+    Info (12134): Parameter "enable_metastability" = "YES"
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|sld_jtag_endpoint_adapter:jtag_signal_adapter" File: /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/altsource_probe.v Line: 169
+Info (12128): Elaborating entity "sld_jtag_endpoint_adapter_impl" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst" File: /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd Line: 232
+Info (12128): Elaborating entity "altsource_probe_body" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst" File: /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/altsource_probe.v Line: 205
+Info (12128): Elaborating entity "altsource_probe_impl" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst" File: /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/altsource_probe_body.vhd Line: 508
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "issp:issp_inst|altsource_probe_top:in_system_sources_probes_0|altsource_probe:issp_impl|altsource_probe_body:altsource_probe_body_inst|altsource_probe_impl:\wider_probe_gen:wider_probe_inst|sld_rom_sr:\no_instance_id_gen:rom_info_inst" File: /home/rajinthan/altera_lite/25.1std/quartus/libraries/megafunctions/altsource_probe_body.vhd Line: 776
+Info (12128): Elaborating entity "cache" for hierarchy "cache:cache_inst" File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/top_synth.v Line: 205
+Warning (10036): Verilog HDL or VHDL warning at cache.v(62): object "mshr_set" assigned a value but never read File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 62
+Warning (10036): Verilog HDL or VHDL warning at cache.v(74): object "mshr_active_idx" assigned a value but never read File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 74
+Warning (10230): Verilog HDL assignment warning at cache.v(215): truncated value with size 256 to match size of target (128) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 215
+Warning (10230): Verilog HDL assignment warning at cache.v(228): truncated value with size 256 to match size of target (128) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 228
+Warning (10230): Verilog HDL assignment warning at cache.v(307): truncated value with size 32 to match size of target (6) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 307
+Warning (10230): Verilog HDL assignment warning at cache.v(314): truncated value with size 17 to match size of target (15) File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 314
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2025.12.28.19:56:25 Progress: Loading sldf7b0dac6/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldf7b0dac6/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/db/ip/sldf7b0dac6/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13000): Registers with preset signals will power-up high File: /home/rajinthan/Workspace/Git/Set-Associative-Cache/verilog/cache.v Line: 15
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 15 registers lost all their fanouts during netlist optimizations.
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (144001): Generated suppressed messages file /home/rajinthan/Workspace/Git/Set-Associative-Cache/output_files/Cache.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1014 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
-    Info (21059): Implemented 8 output pins
-    Info (21061): Implemented 1000 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 475 megabytes
-    Info: Processing ended: Sat Dec 27 18:55:31 2025
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:12
+Info (21057): Implemented 17715 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 17696 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 892 megabytes
+    Info: Processing ended: Sun Dec 28 19:57:31 2025
+    Info: Elapsed time: 00:01:21
+    Info: Total CPU time (on all processors): 00:01:42
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/rajinthan/Workspace/Git/Set-Associative-Cache/output_files/Cache.map.smsg.
 
 

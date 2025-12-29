@@ -1,0 +1,294 @@
+//==============================================================================
+// Synthesis top for 4-way Set-Associative Cache with ISSP Debug
+// Target: DE0-Nano (Cyclone IV EP4CE22F17C6)
+// Features: In-System Sources and Probes for real-time debugging
+//==============================================================================
+module top_synth (
+    input  wire        clk_50,
+    input  wire        rst_n,
+    input  wire [3:0]  sw,
+    output wire [7:0]  led
+);
+
+    //==========================================================================
+    // CPU Interface Signals
+    //==========================================================================
+    reg        cpu_req_valid;
+    reg        cpu_req_rw;
+    reg [1:0]  cpu_req_size;
+    reg [19:0] cpu_req_addr;
+    reg [31:0] cpu_req_wdata;
+    wire       cpu_req_ready;
+    wire       cpu_resp_valid;
+    wire       cpu_resp_hit;
+    wire [31:0] cpu_resp_rdata;
+
+    //==========================================================================
+    // Memory Interface (Internal)
+    //==========================================================================
+    wire        mem_req_valid;
+    wire        mem_req_rw;
+    wire [14:0] mem_req_addr;
+    wire [255:0] mem_req_wdata;
+    reg         mem_resp_valid;
+    reg [255:0] mem_resp_rdata;
+
+    //==========================================================================
+    // Internal State
+    //==========================================================================
+    reg [5:0] mem_delay;
+    reg mem_busy;
+    reg [19:0] cnt;
+    reg [15:0] hit_cnt;
+    reg [15:0] miss_cnt;
+    reg [15:0] total_req;
+
+    //==========================================================================
+    // ISSP Debug Signals
+    //==========================================================================
+    // ISSP Source (from Quartus to FPGA) - 32 bits for control
+    wire [31:0] issp_source;
+    
+    // ISSP Probe (from FPGA to Quartus) - 64 bits for monitoring
+    wire [63:0] issp_probe;
+    
+    // Debug control from ISSP source
+    wire        debug_mode      = issp_source[0];      // 0=auto, 1=manual
+    wire        debug_req_valid = issp_source[1];      // Manual request valid
+    wire        debug_req_rw    = issp_source[2];      // Manual read/write
+    wire [1:0]  debug_req_size  = issp_source[4:3];    // Manual size
+    wire [19:0] debug_req_addr  = issp_source[24:5];   // Manual address
+    wire        debug_reset_cnt = issp_source[25];     // Reset counters
+    wire        debug_single_step = issp_source[26];   // Single step mode
+    wire [4:0]  debug_probe_sel = issp_source[31:27];  // Probe selection
+
+    //==========================================================================
+    // ISSP Instance (Generate in Quartus IP Catalog)
+    //==========================================================================
+    // You need to create this IP in Quartus:
+    // 1. Tools -> IP Catalog -> Search "In-System Sources and Probes"
+    // 2. Configure: Source Width = 32, Probe Width = 64
+    // 3. Generate as "issp_debug"
+    
+    issp_debug issp_inst (
+        .probe(issp_probe),
+        .source(issp_source)
+    );
+
+    //==========================================================================
+    // Request Generation (Auto or Manual via ISSP)
+    //==========================================================================
+    reg req_pending;
+    reg [19:0] auto_addr;
+    
+    always @(posedge clk_50 or negedge rst_n) begin
+        if (!rst_n) begin
+            cnt           <= 0;
+            cpu_req_valid <= 0;
+            cpu_req_rw    <= 0;
+            cpu_req_size  <= 2;
+            cpu_req_addr  <= 0;
+            cpu_req_wdata <= 0;
+            hit_cnt       <= 0;
+            miss_cnt      <= 0;
+            total_req     <= 0;
+            req_pending   <= 0;
+            auto_addr     <= 0;
+        end
+        else begin
+            cnt <= cnt + 1;
+            
+            // Reset counters on debug command
+            if (debug_reset_cnt) begin
+                hit_cnt   <= 0;
+                miss_cnt  <= 0;
+                total_req <= 0;
+            end
+            
+            // Default: no request
+            cpu_req_valid <= 0;
+            
+            if (debug_mode) begin
+                //==============================================================
+                // MANUAL MODE: ISSP controls requests
+                //==============================================================
+                if (debug_req_valid && cpu_req_ready && !req_pending) begin
+                    cpu_req_valid <= 1;
+                    cpu_req_rw    <= debug_req_rw;
+                    cpu_req_size  <= debug_req_size;
+                    cpu_req_addr  <= debug_req_addr;
+                    cpu_req_wdata <= {12'hDEB, debug_req_addr};  // Debug marker
+                    req_pending   <= 1;
+                end
+                
+                // Clear pending on response
+                if (cpu_resp_valid)
+                    req_pending <= 0;
+            end
+            else begin
+                //==============================================================
+                // AUTO MODE: Automatic pattern generation
+                //==============================================================
+                if (!debug_single_step || (debug_single_step && debug_req_valid)) begin
+                    // Generate request every 256 cycles (or on step)
+                    if ((cnt[7:0] == 0 || debug_single_step) && cpu_req_ready) begin
+                        cpu_req_valid <= 1;
+                        cpu_req_rw    <= sw[0];
+                        cpu_req_size  <= 2;  // Word access
+                        
+                        // Address pattern based on switches
+                        case (sw[2:1])
+                            2'b00: auto_addr <= auto_addr + 4;           // Sequential
+                            2'b01: auto_addr <= auto_addr + 32;          // Line stride
+                            2'b10: auto_addr <= auto_addr + 256;         // Set stride
+                            2'b11: auto_addr <= {auto_addr[19:8], auto_addr[7:0] ^ 8'hFF}; // Conflict
+                        endcase
+                        
+                        cpu_req_addr  <= auto_addr;
+                        cpu_req_wdata <= {auto_addr[11:0], cnt[19:0]};
+                    end
+                end
+            end
+            
+            // Track hits/misses
+            if (cpu_resp_valid) begin
+                total_req <= total_req + 1;
+                if (cpu_resp_hit)
+                    hit_cnt <= hit_cnt + 1;
+                else
+                    miss_cnt <= miss_cnt + 1;
+            end
+        end
+    end
+
+    //==========================================================================
+    // Memory Stub with Configurable Latency
+    //==========================================================================
+    localparam MEM_LATENCY = 20;  // Cycles
+    
+    always @(posedge clk_50 or negedge rst_n) begin
+        if (!rst_n) begin
+            mem_resp_valid <= 0;
+            mem_resp_rdata <= 0;
+            mem_delay <= 0;
+            mem_busy <= 0;
+        end
+        else begin
+            mem_resp_valid <= 0;
+            
+            if (mem_req_valid && !mem_busy) begin
+                mem_busy <= 1;
+                mem_delay <= MEM_LATENCY;
+            end
+            else if (mem_busy) begin
+                if (mem_delay == 0) begin
+                    mem_busy <= 0;
+                    mem_resp_valid <= 1;
+                    // Return address-based pattern for verification
+                    mem_resp_rdata <= {8{mem_req_addr, 17'd0}};
+                end
+                else begin
+                    mem_delay <= mem_delay - 1;
+                end
+            end
+        end
+    end
+
+    //==========================================================================
+    // Cache Instance
+    //==========================================================================
+    cache cache_inst (
+        .clk(clk_50),
+        .rst_n(rst_n),
+        .cpu_req_valid(cpu_req_valid),
+        .cpu_req_rw(cpu_req_rw),
+        .cpu_req_size(cpu_req_size),
+        .cpu_req_addr(cpu_req_addr),
+        .cpu_req_wdata(cpu_req_wdata),
+        .cpu_req_ready(cpu_req_ready),
+        .cpu_resp_valid(cpu_resp_valid),
+        .cpu_resp_hit(cpu_resp_hit),
+        .cpu_resp_rdata(cpu_resp_rdata),
+        .mem_req_valid(mem_req_valid),
+        .mem_req_rw(mem_req_rw),
+        .mem_req_addr(mem_req_addr),
+        .mem_req_wdata(mem_req_wdata),
+        .mem_resp_valid(mem_resp_valid),
+        .mem_resp_rdata(mem_resp_rdata)
+    );
+
+    //==========================================================================
+    // ISSP Probe Multiplexer - Select what to observe
+    //==========================================================================
+    reg [63:0] probe_data;
+    
+    always @(*) begin
+        case (debug_probe_sel)
+            5'd0: probe_data = {  // Default: Status overview
+                hit_cnt,              // [63:48] Hit count
+                miss_cnt,             // [47:32] Miss count
+                cpu_resp_rdata        // [31:0]  Last response data
+            };
+            
+            5'd1: probe_data = {  // CPU Request signals
+                4'd0,
+                cpu_req_addr,         // [59:40] Request address
+                cpu_req_wdata         // [31:0]  Write data
+            };
+            
+            5'd2: probe_data = {  // CPU Response signals
+                16'd0,
+                total_req,            // [47:32] Total requests
+                cpu_resp_rdata        // [31:0]  Response data
+            };
+            
+            5'd3: probe_data = {  // Memory interface
+                1'b0,
+                mem_req_rw,           // [62]    Memory R/W
+                mem_req_valid,        // [61]    Memory request valid
+                mem_busy,             // [60]    Memory busy
+                mem_delay,            // [59:54] Memory delay counter
+                6'd0,
+                mem_req_addr,         // [47:33] Memory address
+                1'b0,
+                cpu_resp_rdata        // [31:0]  Response data
+            };
+            
+            5'd4: probe_data = {  // Cache status
+                8'd0,
+                cpu_req_ready,        // [55]    Ready
+                cpu_resp_valid,       // [54]    Response valid
+                cpu_resp_hit,         // [53]    Hit
+                mem_req_valid,        // [52]    Memory request
+                mem_req_rw,           // [51]    Memory R/W
+                mem_busy,             // [50]    Memory busy
+                2'd0,
+                hit_cnt,              // [47:32] Hit count
+                miss_cnt              // [31:16] Miss count (upper)
+                                      // [15:0]  Miss count (lower) - truncated
+            };
+            
+            5'd5: probe_data = {  // Hit rate calculation helper
+                total_req,            // [63:48] Total
+                hit_cnt,              // [47:32] Hits
+                miss_cnt              // [31:16] Misses (partial)
+                                      // To calculate: hit_rate = hit_cnt / total_req
+            };
+            
+            default: probe_data = {hit_cnt, miss_cnt, cpu_resp_rdata};
+        endcase
+    end
+    
+    assign issp_probe = probe_data;
+
+    //==========================================================================
+    // LED Outputs - Visual Status
+    //==========================================================================
+    assign led[0] = cpu_resp_hit;           // Hit indicator (pulse)
+    assign led[1] = cpu_resp_valid;         // Response valid (pulse)
+    assign led[2] = cpu_req_ready;          // Ready for request
+    assign led[3] = mem_req_valid | mem_busy; // Memory activity
+    assign led[4] = debug_mode;             // Debug mode indicator
+    assign led[7:5] = sw[3] ? miss_cnt[2:0] : hit_cnt[2:0]; // Counter display
+
+endmodule
